@@ -183,19 +183,35 @@ retry:
 // display progress / description in loading screen
 void GUI_DisplayLoadProgress(int percent, const wchar_t* pending_task)
 {
-	g_GUI->GetActiveGUI()->GetScriptInterface()->SetGlobal("g_Progress", percent, true, false, true);
-	g_GUI->GetActiveGUI()->GetScriptInterface()->SetGlobal("g_LoadDescription", pending_task, true, false, true);
-	g_GUI->GetActiveGUI()->SendEventToAll("progress");
+	const ScriptInterface& scriptInterface = *(g_GUI->GetActiveGUI()->GetScriptInterface());
+	JSContext* cx = scriptInterface.GetContext();
+	JSAutoRequest rq(cx);
+
+	JS::AutoValueVector paramData(cx);
+
+	paramData.append(JS::NumberValue(percent));
+
+	JS::RootedValue valPendingTask(cx);
+	scriptInterface.ToJSVal(cx, &valPendingTask, pending_task);
+	paramData.append(valPendingTask);
+
+	g_GUI->GetActiveGUI()->SendEventToAll("GameLoadProgress", paramData);
 }
 
+bool ShouldRender()
+{
+	return !g_app_minimized && (g_app_has_focus || !g_VideoMode.IsInFullscreen());
+}
 
 
 void Render()
 {
-	PROFILE3("render");
+	// Do not render if not focused while in fullscreen or minimised,
+	// as that triggers a difficult-to-reproduce crash on some graphic cards.
+	if (!ShouldRender())
+		return;
 
-	if (g_SoundManager)
-		g_SoundManager->IdleTask();
+	PROFILE3("render");
 
 	ogl_WarnIfError();
 
@@ -505,20 +521,21 @@ void InitPsAutostart(bool networked, JS::HandleValue attrs)
 	JSAutoRequest rq(cx);
 
 	JS::RootedValue playerAssignments(cx);
-	scriptInterface.Eval("({})", &playerAssignments);
+	scriptInterface.CreateObject(&playerAssignments);
 
 	if (!networked)
 	{
 		JS::RootedValue localPlayer(cx);
-		scriptInterface.Eval("({})", &localPlayer);
-		scriptInterface.SetProperty(localPlayer, "player", g_Game->GetPlayerID());
+		scriptInterface.CreateObject(&localPlayer, "player", g_Game->GetPlayerID());
 		scriptInterface.SetProperty(playerAssignments, "local", localPlayer);
 	}
 
 	JS::RootedValue sessionInitData(cx);
-	scriptInterface.Eval("({})", &sessionInitData);
-	scriptInterface.SetProperty(sessionInitData, "attribs", attrs);
-	scriptInterface.SetProperty(sessionInitData, "playerAssignments", playerAssignments);
+
+	scriptInterface.CreateObject(
+		&sessionInitData,
+		"attribs", attrs,
+		"playerAssignments", playerAssignments);
 
 	InitPs(true, L"page_loading.xml", &scriptInterface, sessionInitData);
 }
@@ -1088,7 +1105,7 @@ void InitGraphics(const CmdLineArgs& args, int flags, const std::vector<CStr>& i
 			JS::RootedValue data(cx);
 			if (g_GUI)
 			{
-				scriptInterface->Eval("({})", &data);
+				scriptInterface->CreateObject(&data);
 				scriptInterface->SetProperty(data, "isStartup", true);
 				if (!installedMods.empty())
 					scriptInterface->SetProperty(data, "installedMods", installedMods);
@@ -1207,6 +1224,7 @@ CStr8 LoadSettingsOfScenarioMap(const VfsPath &mapPath)
  *                                 (default 10 minutes)
  * -autostart-reliccount=NUM       sets the number of relics for relic victory condition
  *                                 (default 2 relics)
+ * -autostart-disable-replay       disable saving of replays
  *
  * Multiplayer:
  * -autostart-playername=NAME      sets local player NAME (default 'anonymous')
@@ -1241,18 +1259,19 @@ bool Autostart(const CmdLineArgs& args)
 		return false;
 
 	const bool nonVisual = args.Has("autostart-nonvisual");
-	g_Game = new CGame(nonVisual, !nonVisual);
+	g_Game = new CGame(nonVisual, !args.Has("autostart-disable-replay"));
 
 	ScriptInterface& scriptInterface = g_Game->GetSimulation2()->GetScriptInterface();
 	JSContext* cx = scriptInterface.GetContext();
 	JSAutoRequest rq(cx);
 
 	JS::RootedValue attrs(cx);
-	scriptInterface.Eval("({})", &attrs);
 	JS::RootedValue settings(cx);
-	scriptInterface.Eval("({})", &settings);
 	JS::RootedValue playerData(cx);
-	scriptInterface.Eval("([])", &playerData);
+
+	scriptInterface.CreateObject(&attrs);
+	scriptInterface.CreateObject(&settings);
+	scriptInterface.CreateArray(&playerData);
 
 	// The directory in front of the actual map name indicates which type
 	// of map is being loaded. Drawback of this approach is the association
@@ -1305,11 +1324,11 @@ bool Autostart(const CmdLineArgs& args)
 		for (size_t i = 0; i < numPlayers; ++i)
 		{
 			JS::RootedValue player(cx);
-			scriptInterface.Eval("({})", &player);
 
 			// We could load player_defaults.json here, but that would complicate the logic
 			// even more and autostart is only intended for developers anyway
-			scriptInterface.SetProperty(player, "Civ", std::string("athen"));
+			scriptInterface.CreateObject(&player, "Civ", std::string("athen"));
+
 			scriptInterface.SetPropertyInt(playerData, i, player);
 		}
 		mapType = "random";
@@ -1392,7 +1411,7 @@ bool Autostart(const CmdLineArgs& args)
 					LOGWARNING("Autostart: Invalid player %d in autostart-team option", playerID);
 					continue;
 				}
-				scriptInterface.Eval("({})", &player);
+				scriptInterface.CreateObject(&player);
 			}
 
 			int teamID = civArgs[i].AfterFirst(":").ToInt() - 1;
@@ -1423,7 +1442,7 @@ bool Autostart(const CmdLineArgs& args)
 					LOGWARNING("Autostart: Invalid player %d in autostart-ai option", playerID);
 					continue;
 				}
-				scriptInterface.Eval("({})", &player);
+				scriptInterface.CreateObject(&player);
 			}
 
 			CStr name = aiArgs[i].AfterFirst(":");
@@ -1451,7 +1470,7 @@ bool Autostart(const CmdLineArgs& args)
 					LOGWARNING("Autostart: Invalid player %d in autostart-aidiff option", playerID);
 					continue;
 				}
-				scriptInterface.Eval("({})", &player);
+				scriptInterface.CreateObject(&player);
 			}
 
 			int difficulty = civArgs[i].AfterFirst(":").ToInt();
@@ -1479,7 +1498,7 @@ bool Autostart(const CmdLineArgs& args)
 						LOGWARNING("Autostart: Invalid player %d in autostart-civ option", playerID);
 						continue;
 					}
-					scriptInterface.Eval("({})", &player);
+					scriptInterface.CreateObject(&player);
 				}
 
 				CStr name = civArgs[i].AfterFirst(":");

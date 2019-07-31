@@ -1,4 +1,4 @@
-/* Copyright (C) 2017 Wildfire Games.
+/* Copyright (C) 2019 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -67,7 +67,6 @@ CMiniMap::CMiniMap() :
 	m_EntitiesDrawn(0), m_IndexArray(GL_STATIC_DRAW), m_VertexArray(GL_DYNAMIC_DRAW),
 	m_NextBlinkTime(0.0), m_PingDuration(25.0), m_BlinkState(false), m_WaterHeight(0.0)
 {
-	AddSetting(GUIST_CColor,	"fov_wedge_color");
 	AddSetting(GUIST_CStrW,		"tooltip");
 	AddSetting(GUIST_CStr,		"tooltip_style");
 	m_Clicking = false;
@@ -243,10 +242,12 @@ void CMiniMap::FireWorldClickEvent(int UNUSED(button), int UNUSED(clicks))
 	GetMouseWorldCoordinates(x, z);
 
 	JS::RootedValue coords(cx);
-	g_GUI->GetActiveGUI()->GetScriptInterface()->Eval("({})", &coords);
-	g_GUI->GetActiveGUI()->GetScriptInterface()->SetProperty(coords, "x", x, false);
-	g_GUI->GetActiveGUI()->GetScriptInterface()->SetProperty(coords, "z", z, false);
-	ScriptEvent("worldclick", coords);
+	g_GUI->GetActiveGUI()->GetScriptInterface()->CreateObject(&coords, "x", x, "z", z);
+
+	JS::AutoValueVector paramData(cx);
+	paramData.append(coords);
+
+	ScriptEvent("worldclick", paramData);
 }
 
 // This sets up and draws the rectangle on the minimap

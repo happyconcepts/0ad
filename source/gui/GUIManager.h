@@ -1,4 +1,4 @@
-/* Copyright (C) 2018 Wildfire Games.
+/* Copyright (C) 2019 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@
 class CGUI;
 class JSObject;
 class IGUIObject;
-struct CColor;
+struct CGUIColor;
 struct SGUIIcon;
 
 /**
@@ -105,17 +105,13 @@ public:
 	/**
 	 * See CGUI::GetPreDefinedColor; applies to the currently active page.
 	 */
-	bool GetPreDefinedColor(const CStr& name, CColor& output) const;
-
-	/**
-	 * See CGUI::FindObjectByName; applies to the currently active page.
-	 */
-	IGUIObject* FindObjectByName(const CStr& name) const;
+	bool GetPreDefinedColor(const CStr& name, CGUIColor& output) const;
 
 	/**
 	 * See CGUI::SendEventToAll; applies to the currently active page.
 	 */
 	void SendEventToAll(const CStr& eventName) const;
+	void SendEventToAll(const CStr& eventName, JS::HandleValueArray paramData) const;
 
 	/**
 	 * See CGUI::TickObjects; applies to @em all loaded pages.
@@ -154,11 +150,7 @@ private:
 	{
 		CStrW name;
 		boost::unordered_set<VfsPath> inputs; // for hotloading
-
-		JSContext* cx;
 		shared_ptr<ScriptInterface::StructuredClone> initData; // data to be passed to the init() function
-		CStrW callbackPageName;
-
 		shared_ptr<CGUI> gui; // the actual GUI page
 	};
 
@@ -166,7 +158,6 @@ private:
 
 	shared_ptr<CGUI> top() const;
 
-	shared_ptr<CGUI> m_CurrentGUI; // used to latch state during TickObjects/LoadPage (this is kind of ugly)
 	shared_ptr<ScriptRuntime> m_ScriptRuntime;
 	shared_ptr<ScriptInterface> m_ScriptInterface;
 

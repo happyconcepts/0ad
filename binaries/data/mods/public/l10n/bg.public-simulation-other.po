@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2019-01-18 09:44+0100\n"
-"PO-Revision-Date: 2019-01-21 08:24+0000\n"
+"POT-Creation-Date: 2019-05-24 09:43+0200\n"
+"PO-Revision-Date: 2019-05-27 06:53+0000\n"
 "Last-Translator: Любомир Василев\n"
 "Language-Team: Bulgarian (http://www.transifex.com/wildfire-games/0ad/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -239,8 +239,8 @@ msgstr "%(_player_)s, трябва да ми изпратиш %(_amount_)s %(_re
 #, javascript-format
 msgid ""
 "Unless you send me %(_amount_)s %(_resource_)s, an alliance won’t be formed,"
-" %(_player_)s,"
-msgstr "Ако не ми изпратиш %(_amount_)s %(_resource_)s, няма да вляза в съюз с теб, %(_player_)s,"
+" %(_player_)s."
+msgstr "Ако не ми изпратиш %(_amount_)s %(_resource_)s, няма да вляза в съюз с теб, %(_player_)s."
 
 #: simulation/ai/petra/chatHelper.js:88
 #, javascript-format
@@ -604,7 +604,7 @@ msgstr "Неуспешно пускане от гарнизон"
 msgid "Some unit(s) can't go back to work"
 msgstr "Има единица (или единици), която не може да се върне обратно към работата си."
 
-#: simulation/helpers/Commands.js:1114
+#: simulation/helpers/Commands.js:1112
 msgid "The building's technology requirements are not met."
 msgstr "Не са изпълнени технологичните изисквания на сградата."
 
@@ -736,8 +736,9 @@ msgstr "Цареубийство"
 msgid ""
 "Be the first to build or capture a Wonder and keep it for a certain time to "
 "win the game. The timer will be reset when the Wonder is destroyed or "
-"captured or in allied victory when the owners alliances change."
-msgstr "Станете първият, който ще построи чудо и ще го задържи за определено време, за да спечелите играта. Броячът на времето ще се нулира, ако чудото бъде разрушено или превзето, или ако играта е със условие за съюзническа победа – когато съюзът на притежателите му бъде променен."
+"captured. If the allied victory mode is enabled, the timer will also be "
+"reset when the alliances of the owner change."
+msgstr "Станете първият, който ще построи чудо и ще го задържи за определено време, за да спечелите играта. Броячът на времето ще се нулира, ако чудото бъде разрушено или превзето. Ако условието за съюзническа победа е включено, броячът ще се нулира също и когато съюзът на притежателите му бъде променен."
 
 #: simulation/data/settings/victory_conditions/wonder.jsonData.Title
 msgid "Wonder"

@@ -1,4 +1,4 @@
-/* Copyright (C) 2018 Wildfire Games.
+/* Copyright (C) 2019 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -19,8 +19,7 @@
 
 #include "GUIManager.h"
 
-#include "CGUI.h"
-
+#include "gui/CGUI.h"
 #include "lib/timer.h"
 #include "ps/Filesystem.h"
 #include "ps/CLogger.h"
@@ -231,10 +230,6 @@ void CGUIManager::LoadPage(SGUIPage& page)
 		}
 	}
 
-	// Remember this GUI page, in case the scripts call FindObjectByName
-	shared_ptr<CGUI> oldGUI = m_CurrentGUI;
-	m_CurrentGUI = page.gui;
-
 	page.gui->SendEventToAll("load");
 
 	shared_ptr<ScriptInterface> scriptInterface = page.gui->GetScriptInterface();
@@ -254,8 +249,6 @@ void CGUIManager::LoadPage(SGUIPage& page)
 	if (scriptInterface->HasProperty(global, "init") &&
 	    !scriptInterface->CallFunctionVoid(global, "init", initDataVal, hotloadDataVal))
 		LOGERROR("GUI page '%s': Failed to call init() function", utf8_from_wstring(page.name));
-
-	m_CurrentGUI = oldGUI;
 }
 
 Status CGUIManager::ReloadChangedFile(const VfsPath& path)
@@ -353,24 +346,19 @@ InReaction CGUIManager::HandleEvent(const SDL_Event_* ev)
 }
 
 
-bool CGUIManager::GetPreDefinedColor(const CStr& name, CColor& output) const
+bool CGUIManager::GetPreDefinedColor(const CStr& name, CGUIColor& output) const
 {
 	return top()->GetPreDefinedColor(name, output);
-}
-
-IGUIObject* CGUIManager::FindObjectByName(const CStr& name) const
-{
-	// This can be called from scripts run by TickObjects,
-	// and we want to return it the same GUI page as is being ticked
-	if (m_CurrentGUI)
-		return m_CurrentGUI->FindObjectByName(name);
-	else
-		return top()->FindObjectByName(name);
 }
 
 void CGUIManager::SendEventToAll(const CStr& eventName) const
 {
 	top()->SendEventToAll(eventName);
+}
+
+void CGUIManager::SendEventToAll(const CStr& eventName, JS::HandleValueArray paramData) const
+{
+	top()->SendEventToAll(eventName, paramData);
 }
 
 void CGUIManager::TickObjects()
@@ -385,11 +373,7 @@ void CGUIManager::TickObjects()
 	PageStackType pageStack = m_PageStack;
 
 	for (const SGUIPage& p : pageStack)
-	{
-		m_CurrentGUI = p.gui;
 		p.gui->TickObjects();
-	}
-	m_CurrentGUI.reset();
 }
 
 void CGUIManager::Draw()
@@ -407,11 +391,9 @@ void CGUIManager::UpdateResolution()
 
 	for (const SGUIPage& p : pageStack)
 	{
-		m_CurrentGUI = p.gui;
 		p.gui->UpdateResolution();
 		p.gui->SendEventToAll("WindowResized");
 	}
-	m_CurrentGUI.reset();
 }
 
 bool CGUIManager::TemplateExists(const std::string& templateName) const

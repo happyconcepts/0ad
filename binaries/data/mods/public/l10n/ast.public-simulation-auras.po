@@ -1,5 +1,5 @@
 # Translation template for 0 A.D. — Empires Ascendant.
-# Copyright (C) 2018 Wildfire Games
+# Copyright (C) 2019 Wildfire Games
 # This file is distributed under the same license as the 0 A.D. — Empires Ascendant project.
 # 
 # Translators:
@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2018-12-31 09:45+0100\n"
-"PO-Revision-Date: 2019-02-26 23:47+0000\n"
+"POT-Creation-Date: 2019-04-01 10:10+0200\n"
+"PO-Revision-Date: 2019-06-04 23:01+0000\n"
 "Last-Translator: David Sowa <isithere2@yahoo.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/wildfire-games/0ad/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Patriotismu"
 
 #: simulation/data/auras/structures/kush_pyramids_economic.jsonauraDescription
 msgid "Workers +15% gather rates near pyramids."
-msgstr "Los trabayadores +15% de ritmu de recoyida cierca de pirámides. "
+msgstr "Los trabayadores +15% de tasa de recueya cierca de pirámides. "
 
 #: simulation/data/auras/structures/kush_pyramids_military.jsonauraName
 msgid "Exhortative Presence"
@@ -108,7 +108,7 @@ msgstr "Bonificación agraria"
 
 #: simulation/data/auras/structures/rotary_mill.jsonauraDescription
 msgid "+25% gather rate for workers in the grainfields."
-msgstr "+25% de ritmu de recoyida pa trabayadores nos eros."
+msgstr "+25% de tasa de recueya pa trabayadores nos eros."
 
 #: simulation/data/auras/structures/temple_heal.jsonauraName
 msgid "Medical Treatment"
@@ -165,60 +165,56 @@ msgid "Delian League"
 msgstr "Lliga de Delos"
 
 #: simulation/data/auras/teambonuses/athen_player_teambonus.jsonauraDescription
-msgid "Ships construct 25% faster."
-msgstr "Los barcos constrúinse un 25% más rápido."
+msgid "Allied warships −25% construction time."
+msgstr "Barcos de guerra aliaos −25% de tiempu de construcción."
 
 #: simulation/data/auras/teambonuses/brit_player_teambonus.jsonauraName
 msgid "Druids"
 msgstr "Druides"
 
 #: simulation/data/auras/teambonuses/brit_player_teambonus.jsonauraDescription
-msgid "Allies get -20% resource cost to train healers."
-msgstr "Los aliaos tienen -20% de costu en recursos p'allistar curadores."
+msgid "Allied healers −20% resource costs."
+msgstr "Curadores aliaos −20% de costu en recursos."
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraName
 msgid "Trademasters"
 msgstr "Maestros del comerciu"
 
 #: simulation/data/auras/teambonuses/cart_player_teambonus.jsonauraDescription
-msgid "10% bonus of trade profit for ally's international routes."
-msgstr "10% de bonificación nel beneficiu comercial pa toles rutes aliaes y internacionales."
+msgid "Allied markets +10% international trade bonus."
+msgstr "Mercaos aliaos +10% de bonificación nel comerciu internacional."
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraName
 msgid "Druidic Wisdom"
 msgstr "Sabencia druídica"
 
 #: simulation/data/auras/teambonuses/gaul_player_teambonus.jsonauraDescription
-msgid "-20% research time for technologies of allies."
-msgstr "-20% de tiempu d'investigacón pa teunoloxíes aliaes."
+msgid "Allied structures −20% technology research time."
+msgstr "Construcciones aliaes −20% de tiempu d'investigación de teunoloxía."
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraName
 msgid "Saripeko"
 msgstr "Saripeko"
 
 #: simulation/data/auras/teambonuses/iber_player_teambonus.jsonauraDescription
-msgid ""
-"Reduces the cost for citizen-soldier skirmishers with 20% for allies of "
-"Iberian players"
-msgstr "Amenorga'l costu de los forfugos miliciano-populares nun 20% p'aliaos de xugadores íberos"
+msgid "Allied citizen-soldier javelinists −20% resource costs."
+msgstr "Llanzadores de xavelina miliciano-populares aliaos −20% de costu en recursos."
 
-#: simulation/data/auras/teambonuses/kush_player_team_bonus.jsonauraName
+#: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraName
 msgid "Elephant Suppliers"
 msgstr "Suministradores d'elefantes"
 
-#: simulation/data/auras/teambonuses/kush_player_team_bonus.jsonauraDescription
-msgid ""
-"Reduces the cost and train time for elephants with 20% for allies of Kushite"
-" players."
-msgstr "Amenorga'l costu y muera d'allistamientu d'elefantes nun 20% p'aliaos de xugadores cuxinos."
+#: simulation/data/auras/teambonuses/kush_player_teambonus.jsonauraDescription
+msgid "Allied elephants −20% resource costs and training time."
+msgstr "Elefantes aliaos −20% de costu en recursos y muera d'allistamientu."
 
 #: simulation/data/auras/teambonuses/mace_player_teambonus.jsonauraName
 msgid "Standardized Currency"
 msgstr "Divisa estadarizada"
 
 #: simulation/data/auras/teambonuses/mace_player_teambonus.jsonauraDescription
-msgid "+20% sell prices at market."
-msgstr "+20% a los precios de venta en mercáu. "
+msgid "Allies +20% barter sell prices."
+msgstr "Aliaos +20% a los precios al negociar / vender."
 
 #: simulation/data/auras/teambonuses/maur_player_teambonus.jsonauraName
 msgid "Ashoka's Religious Support"
@@ -226,51 +222,49 @@ msgstr "Sofitu relixosu d'Axoca"
 
 #: simulation/data/auras/teambonuses/maur_player_teambonus.jsonauraDescription
 msgid ""
-"Allied temples and temple technologies -50% cost, in resources and time."
-msgstr "Los templos aliaos y les sos teunoloxíes -50% de costu, en recursos y tiempu."
+"Allied temples −50% resource costs and building time; temple technologies "
+"−50% resource costs and research time."
+msgstr "Templos aliaos −50% de costu en recursos y tiempu de construcción; teunoloxíes de templos −50% de costu en recursos y tiempu d'investigación."
 
 #: simulation/data/auras/teambonuses/pers_player_teambonus.jsonauraName
 msgid "The Royal Road"
 msgstr "El camín real"
 
 #: simulation/data/auras/teambonuses/pers_player_teambonus.jsonauraDescription
-msgid "Higher income (+15%) from land trade routes for ally's traders."
-msgstr "Más ganancies (+15%) de les rutes comerciales terrestres pa comerciantes aliaos."
+msgid "Allied land traders +15% trade gain."
+msgstr "Comerciantes terrestres aliaos +15% a les ganancies comerciales."
 
 #: simulation/data/auras/teambonuses/ptol_player_teambonus.jsonauraName
 msgid "Breadbasket of the Mediterranean"
 msgstr "Celleru del Mediterraneu"
 
 #: simulation/data/auras/teambonuses/ptol_player_teambonus.jsonauraDescription
-msgid "All allies automatically gain a slow trickle of food income."
-msgstr "Tolos aliaos ganen automáticamente un pingayu de comida."
+msgid "Allies +1.0 food trickle rate."
+msgstr "Aliaos +1.0 al ritmu de la pinga de comida."
 
 #: simulation/data/auras/teambonuses/rome_player_teambonus.jsonauraName
 msgid "Conscription"
 msgstr "Serviciu militar"
 
 #: simulation/data/auras/teambonuses/rome_player_teambonus.jsonauraDescription
-msgid "-20% training time for allied citizen-soldier infantry."
-msgstr "-20% de muera d'allistamientu pa infantería miliciano-popular aliao."
+msgid "Allied citizen-soldier infantry −20% training time."
+msgstr "infantería miliciano-popular aliao −20% de muera d'allistamientu."
 
 #: simulation/data/auras/teambonuses/sele_player_teambonus.jsonauraName
 msgid "Syrian Tetrapolis"
 msgstr "Tetrápolis siria"
 
 #: simulation/data/auras/teambonuses/sele_player_teambonus.jsonauraDescription
-msgid ""
-"Reduces the cost for civil centers with 20% for allies of Seleucid players"
-msgstr "Amenorga'l costu de los centros civiles nun 20% p'aliaos de xugadores seléucides"
+msgid "Allied civil centers −20% resource costs."
+msgstr "Centros civiles aliaos −20% de costu en recursos."
 
 #: simulation/data/auras/teambonuses/spart_player_teambonus.jsonauraName
 msgid "Peloponnesian League"
 msgstr "Lliga del Peloponesu"
 
 #: simulation/data/auras/teambonuses/spart_player_teambonus.jsonauraDescription
-msgid ""
-"Increases the health for citizen-soldier infantry spearmen by 10% for allies"
-" of Spartan players."
-msgstr "Aumenta la salú de los llanceros d'a pie miliciano-populares nun 10% p'aliaos de xugadores espartanos."
+msgid "Allied citizen-soldier infantry spearmen +10% health."
+msgstr "Llanceros d'a pie miliciano-populares aliaos +10% de salú."
 
 #: simulation/data/auras/units/female_inspiration.jsonauraName
 msgid "Inspiration"
@@ -278,17 +272,17 @@ msgstr "Inspiración"
 
 #: simulation/data/auras/units/female_inspiration.jsonauraDescription
 msgid "+10% build rate and gather rate for citizen soldiers."
-msgstr "+10% de ritmu de construcción y ritmu de recoyida pa milicianos populares."
+msgstr "+10% de tasa de construcción y tasa de recueya pa milicianos populares."
 
 #: simulation/data/auras/units/catafalques/athen_catafalque_1.jsonauraName
 msgid "Economic Reforms"
-msgstr "Igües económiques"
+msgstr "Reformes económiques"
 
 #: simulation/data/auras/units/catafalques/athen_catafalque_1.jsonauraDescription
 msgid ""
 "Solon instituted several economic reforms encouraging commerce and agriculture.\n"
 "+15% gather rate for workers."
-msgstr "Solón fizo estremaes igües económiques que dieron puxu al comerciu y l'agricultura.\n+15% de ritmu de recoyida pa trabayadores."
+msgstr "Solón fizo estremaes reformes económiques que dieron puxu al comerciu y l'agricultura.\n+15% de tasa de recueya pa trabayadores."
 
 #: simulation/data/auras/units/catafalques/athen_catafalque_2.jsonauraName
 msgid "Economic Fortune"
@@ -379,7 +373,7 @@ msgstr "Primer reina nubia "
 msgid ""
 "Ruling with full power in the Meroë Empire and also playing a significant role in the Meroitic religion, Shanakdakheto represented the might of Kush, something not to be taken lightly.\n"
 "Awe: All enemy female citizens -15% gather rate."
-msgstr "Gobernando con poder total nel Imperiu de Méroe y xugando un papel importante na relixón meroítica, Xanacdaqueto representó'l poderíu de Cux, daqué que nun había tomase a la llixera.\nMedrana reverencial: Toles ciudadanes enemigues -15% de ritmu de recoyida."
+msgstr "Gobernando con poder total nel Imperiu de Méroe y xugando un papel importante na relixón meroítica, Xanacdaqueto representó'l poderíu de Cux, daqué que nun había tomase a la llixera.\nMedrana reverencial: Toles ciudadanes enemigues -15% de tasa de recueya."
 
 #: simulation/data/auras/units/catafalques/kush_catafalque_2.jsonauraName
 msgid "Temple at Naqa"
@@ -397,7 +391,7 @@ msgstr "Saquiador de ciudaes"
 
 #: simulation/data/auras/units/catafalques/mace_catafalque.jsonauraDescription
 msgid ""
-"During the First Macedonian War, Philip and his troops sacked Thermum, the religious and political centre of Aetolia.\n"
+"During the First Macedonian War, Philip and his troops sacked Thermum, the religious and political center of Aetolia.\n"
 "+5 food and wood for every enemy unit killed or structure destroyed."
 msgstr "Na primer guerra macedónica, les tropes de Felipe saquiaron Termu, el centru relixosu y políticu d'Etolia.\n+5 de comida y madera por cada unidá o construcción que l'enemigu pierda."
 
@@ -429,7 +423,7 @@ msgstr "Gran constructor"
 msgid ""
 "Throughout his reign, much of Artaxerxes' wealth was spent on building projects. He restored the Palace of Darius I at Susa and restored the ancient city of Ecbatana.\n"
 "+5% health and -10% resource cost for all buildings."
-msgstr "A lo llargo del so reináu, Artaxerxes gastó'l so dineru en proxectos de construcción. Remocicó'l Palaciu de Daríu I en Susa y anovó l'antigua ciudá d'Ecbátana.\n+5% de salú y -10% de costu en recursos pa toles construcciones."
+msgstr "A lo llargo del so reináu, Artaxerxes gastó'l so dineru en proxeutos de construcción. Remocicó'l Palaciu de Daríu I en Susa y anovó l'antigua ciudá d'Ecbátana.\n+5% de salú y -10% de costu en recursos pa toles construcciones."
 
 #: simulation/data/auras/units/catafalques/ptol_catafalque.jsonauraName
 msgid "Great Librarian"
@@ -489,18 +483,18 @@ msgstr "Basileus Megas"
 msgid ""
 "Son of Seleucus Nicator, Antiochus succeeded in the formidable task of keeping the empire together, meanwhile founding temples and defeating the invading Gauls with war elephants.\n"
 "-10% cost for War Elephants."
-msgstr "Fíu de Seleucu Nicátor, Antíocu llogró caltener xuníu l'imperiu entrín fundaba templos y derrotaba a los galos invasores con elefantes de guerra.\n-10% de costu pa elefantes de guerra."
+msgstr "Fíu de Seleucu Nicátor, Antíocu llogró caltener xuníu l'imperiu entrín fundaba templos y vencía a los galos invasores con elefantes de guerra.\n-10% de costu pa elefantes de guerra."
 
 #: simulation/data/auras/units/catafalques/spart_catafalque_1.jsonauraName
 #: simulation/data/auras/units/catafalques/spart_catafalque_2.jsonauraName
 msgid "Lycurgan Military Reforms"
-msgstr "Igües militares de Licurgu"
+msgstr "Reformes militares de Licurgu"
 
 #: simulation/data/auras/units/catafalques/spart_catafalque_1.jsonauraDescription
 msgid ""
 "Lycurgus instituted several military reforms, thus the complete and undivided allegiance to Sparta from its citizens was implemented under his form of government.\n"
 "-10% resource cost for citizen spear infantry."
-msgstr "Licurgu fizo estremaes igües militares. D'ende que baxo'l so gobiernu s'esixía la llealtá entera y vera de los ciudadanos a Esparta.\n-10% de costu pa llanceros d'a pie ciudadanos. "
+msgstr "Licurgu fizo estremaes reformes militares. D'ende que baxo'l so gobiernu s'esixía la llealtá entera y vera de los ciudadanos a Esparta.\n-10% de costu pa llanceros d'a pie ciudadanos. "
 
 #: simulation/data/auras/units/catafalques/spart_catafalque_2.jsonauraDescription
 msgid "-5% resource cost for spear infantry champions."
@@ -514,11 +508,11 @@ msgstr "Piélanos de fierro"
 msgid ""
 "To further support equality, Lycurgus forbade the use of gold and silver, introducing a new iron currency called pelanors.\n"
 "+15% metal gather rate for workers."
-msgstr "Pa meyor sofitar la igualdá, Licurgu quitó l'emplegu del oru y plata y introduxo una nueva moneda de fierro que se denomaba'l piélanu.\n+15% de ritmu na recoyida de metal pa trabayadores."
+msgstr "Pa meyor sofitar la igualdá, Licurgu quitó l'emplegu del oru y plata y introduxo una nueva moneda de fierro que se denomaba'l piélanu.\n+15% de tasa na recueya de metal pa trabayadores."
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_1.jsonauraName
 msgid "Formation Reforms"
-msgstr "Igües táctiques"
+msgstr "Reformes táctiques"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_1.jsonauraDescription
 msgid "All soldiers in his formation +15% speed and +3 armor."
@@ -526,11 +520,11 @@ msgstr "Tolos soldaos na so formación +15% de velocidá y +3 d'armadura."
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraName
 msgid "Peltast Reforms"
-msgstr "Remocique del peltasta"
+msgstr "Reformes del peltasta"
 
 #: simulation/data/auras/units/heroes/athen_hero_iphicrates_2.jsonauraDescription
 msgid "All javelin infantry +15% speed."
-msgstr "Tola infantería de xavalina +15% de velocidá."
+msgstr "Tola infantería de xavelina +15% de velocidá."
 
 #: simulation/data/auras/units/heroes/athen_hero_pericles_1.jsonauraName
 msgid "Periclean Building Program"
@@ -556,7 +550,7 @@ msgstr "Comandante naval"
 msgid ""
 "When garrisoned in a ship, the ship is +50% faster and trains batches of "
 "units faster."
-msgstr "Si guarecíu en barcu, esti va un +50% más rápidu y allista fornaos d'unidaes masina."
+msgstr "Al guarecese en barcu, esti va +50% más rápidu y allista conxuntos d'unidaes masina."
 
 #: simulation/data/auras/units/heroes/athen_hero_themistocles_2.jsonauraName
 msgid "Naval Architect"
@@ -589,7 +583,7 @@ msgstr "Britannorum Rex"
 #: simulation/data/auras/units/heroes/brit_hero_cunobelin.jsonauraDescription
 #: simulation/data/auras/units/heroes/maur_hero_chanakya_2.jsonauraDescription
 msgid "+0.8 HP per second healing rate."
-msgstr "+0.8 PS per segundu nel ritmu de curación."
+msgstr "+0.8 PS per segundu nel ritmu de curamientu."
 
 #: simulation/data/auras/units/heroes/cart_hero_hamilcar_1.jsonauraName
 msgid "Lightning General"
@@ -609,7 +603,7 @@ msgstr "-20% d'ataque pa mercenarios enemigos."
 
 #: simulation/data/auras/units/heroes/cart_hero_hannibal.jsonauraName
 msgid "Tactician"
-msgstr "Tácticu"
+msgstr "Táuticu"
 
 #: simulation/data/auras/units/heroes/cart_hero_hannibal.jsonauraDescription
 msgid ""
@@ -646,7 +640,7 @@ msgstr "Entamanamientu pa la guerra"
 
 #: simulation/data/auras/units/heroes/gaul_hero_viridomarus.jsonauraDescription
 msgid "Gathering rates increased with +15% during his lifetime."
-msgstr "Los ritmos de recoyida aumenten nun +15% demientres viva."
+msgstr "Les tases de recoyida aumenten nun +15% demientres viva."
 
 #: simulation/data/auras/units/heroes/hero_garrison.jsonauraName
 msgid "Inspired Defense"
@@ -729,7 +723,7 @@ msgstr "Matancia de los fieles"
 
 #: simulation/data/auras/units/heroes/kush_hero_arakamani_3.jsonauraDescription
 msgid "Enemy healers −50% healing rate."
-msgstr "Los curadores enemigos −50% de ritmu de curación."
+msgstr "Los curadores enemigos −50% de ritmu de curamientu."
 
 #: simulation/data/auras/units/heroes/kush_hero_nastasen_1.jsonauraName
 msgid "Savior of Kush"
@@ -840,7 +834,7 @@ msgstr "Alministrador"
 
 #: simulation/data/auras/units/heroes/pers_hero_xerxes.jsonauraDescription
 msgid "+15% gather rate and build rate for workers."
-msgstr "+15% de ritmu de recoyida y ritmu de construcción pa trabayadores."
+msgstr "+15% de tasa de recueya y tasa de construcción pa trabayadores."
 
 #: simulation/data/auras/units/heroes/ptol_hero_cleopatra_1.jsonauraName
 msgid "Patriot"
@@ -942,11 +936,11 @@ msgstr "+20% d'ataque y velocidá de movimientu pa elefantes de guerra."
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraName
 msgid "Helot Reforms"
-msgstr "Remocique del ilota"
+msgstr "Reformes del ilota"
 
 #: simulation/data/auras/units/heroes/spart_hero_brasidas.jsonauraDescription
 msgid "+25% attack and +1 armor for javelin infantry citizen-soldiers."
-msgstr "+25% d'ataque y +1 d'armadura pa milicianos populares d'a pie con xavalines."
+msgstr "+25% d'ataque y +1 d'armadura pa milicianos populares d'a pie con xavelines."
 
 #: simulation/data/auras/units/heroes/spart_hero_leonidas.jsonauraName
 msgid "Last Stand"

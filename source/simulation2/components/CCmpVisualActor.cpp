@@ -1,4 +1,4 @@
-/* Copyright (C) 2018 Wildfire Games.
+/* Copyright (C) 2019 Wildfire Games.
  * This file is part of 0 A.D.
  *
  * 0 A.D. is free software: you can redistribute it and/or modify
@@ -55,7 +55,6 @@ class CCmpVisualActor : public ICmpVisual
 public:
 	static void ClassInit(CComponentManager& componentManager)
 	{
-		componentManager.SubscribeToMessageType(MT_Update_Final);
 		componentManager.SubscribeToMessageType(MT_InterpolatedPositionChanged);
 		componentManager.SubscribeToMessageType(MT_OwnershipChanged);
 		componentManager.SubscribeToMessageType(MT_ValueModification);
@@ -74,10 +73,7 @@ private:
 
 	fixed m_R, m_G, m_B; // shading color
 
-	std::map<std::string, std::string> m_AnimOverride;
-
 	// Current animation state
-	fixed m_AnimRunThreshold; // if non-zero this is the special walk/run mode
 	std::string m_AnimName;
 	bool m_AnimOnce;
 	fixed m_AnimSpeed;
@@ -228,9 +224,6 @@ public:
 		serialize.NumberFixed_Unbounded("g", m_G);
 		serialize.NumberFixed_Unbounded("b", m_B);
 
-		SerializeMap<SerializeString, SerializeString>()(serialize, "anim overrides", m_AnimOverride);
-
-		serialize.NumberFixed_Unbounded("anim run threshold", m_AnimRunThreshold);
 		serialize.StringASCII("anim name", m_AnimName, 0, 256);
 		serialize.Bool("anim once", m_AnimOnce);
 		serialize.NumberFixed_Unbounded("anim speed", m_AnimSpeed);
@@ -285,12 +278,6 @@ public:
 	{
 		switch (msg.GetType())
 		{
-		case MT_Update_Final:
-		{
-			const CMessageUpdate_Final& msgData = static_cast<const CMessageUpdate_Final&> (msg);
-			Update(msgData.turnLength);
-			break;
-		}
 		case MT_OwnershipChanged:
 		{
 			if (!m_Unit)
@@ -441,7 +428,6 @@ public:
 
 	virtual void SelectAnimation(const std::string& name, bool once = false, fixed speed = fixed::FromInt(1))
 	{
-		m_AnimRunThreshold = fixed::Zero();
 		m_AnimName = name;
 		m_AnimOnce = once;
 		m_AnimSpeed = speed;
@@ -462,21 +448,12 @@ public:
 		m_Unit->GetAnimation()->SetAnimationState(m_AnimName, m_AnimOnce, m_AnimSpeed.ToFloat(), m_AnimDesync.ToFloat(), m_SoundGroup.c_str());	
 	}
 
-	virtual void ReplaceMoveAnimation(const std::string& name, const std::string& replace)
+	virtual void SelectMovementAnimation(const std::string& name, fixed speed)
 	{
-		m_AnimOverride[name] = replace;
-	}
-
-	virtual void ResetMoveAnimation(const std::string& name)
-	{
-		std::map<std::string, std::string>::const_iterator it = m_AnimOverride.find(name);
-		if (it != m_AnimOverride.end())
-			m_AnimOverride.erase(name);
-	}
-
-	virtual void SelectMovementAnimation(fixed runThreshold)
-	{
-		m_AnimRunThreshold = runThreshold;
+		ENSURE(name == "idle" || name == "walk" || name == "run");
+		if (m_AnimName != "idle" && m_AnimName != "walk" && m_AnimName != "run")
+			return;
+		SelectAnimation(name, false, speed);
 	}
 
 	virtual void SetAnimationSyncRepeat(fixed repeattime)
@@ -557,8 +534,6 @@ private:
 	// ReloadUnitAnimation is used for a minimal reloading upon deserialization, when the actor and seed are identical.
 	// It is also used by ReloadActor.
 	void ReloadUnitAnimation();
-
-	void Update(fixed turnLength);
 };
 
 REGISTER_COMPONENT_TYPE(VisualActor)
@@ -762,47 +737,4 @@ void CCmpVisualActor::ReloadUnitAnimation()
 		m_Unit->GetAnimation()->SetAnimationSyncRepeat(m_AnimSyncRepeatTime.ToFloat());
 	if (!m_AnimSyncOffsetTime.IsZero())
 		m_Unit->GetAnimation()->SetAnimationSyncOffset(m_AnimSyncOffsetTime.ToFloat());
-}
-
-void CCmpVisualActor::Update(fixed UNUSED(turnLength))
-{
-	// This function is currently only used to update the animation if the speed in
-	// CCmpUnitMotion changes. This also only happens in the "special movement mode"
-	// triggered by SelectMovementAnimation.
-
-	// TODO: This should become event based, in order to save performance and to make the code
-	// far less hacky. We should also take into account the speed when the animation is different
-	// from the "special movement mode" walking animation.
-
-	// If we're not in the special movement mode, nothing to do.
-	if (m_AnimRunThreshold.IsZero())
-		return;
-
-	CmpPtr<ICmpPosition> cmpPosition(GetEntityHandle());
-	if (!cmpPosition || !cmpPosition->IsInWorld())
-		return;
-
-	CmpPtr<ICmpUnitMotion> cmpUnitMotion(GetEntityHandle());
-	if (!cmpUnitMotion)
-		return;
-
-	fixed speed = cmpUnitMotion->GetCurrentSpeed();
-	std::string name;
-
-	if (speed.IsZero())
-	{
-		speed = fixed::FromFloat(1.f);
-		name = "idle";
-	}
-	else
-		name = speed < m_AnimRunThreshold ? "walk" : "run";
-
-	std::map<std::string, std::string>::const_iterator it = m_AnimOverride.find(name);
-	if (it != m_AnimOverride.end())
-		name = it->second;
-
-	// Selecting the animation is going to reset the anim run threshold, so save it
-	fixed runThreshold = m_AnimRunThreshold;
-	SelectAnimation(name, false, speed);
-	m_AnimRunThreshold = runThreshold;
 }

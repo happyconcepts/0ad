@@ -67,9 +67,6 @@ struct ScriptInterface_impl
 	JSCompartment* m_comp;
 	boost::rand48* m_rng;
 	JS::PersistentRootedObject m_nativeScope; // native function scope object
-
-	typedef std::map<ScriptInterface::CACHED_VAL, JS::PersistentRootedValue> ScriptValCache;
-	ScriptValCache m_ScriptValCache;
 };
 
 namespace
@@ -450,13 +447,6 @@ ScriptInterface::CxPrivate* ScriptInterface::GetScriptInterfaceAndCBData(JSConte
 	return pCxPrivate;
 }
 
-JS::Value ScriptInterface::GetCachedValue(CACHED_VAL valueIdentifier) const
-{
-	std::map<ScriptInterface::CACHED_VAL, JS::PersistentRootedValue>::const_iterator it = m->m_ScriptValCache.find(valueIdentifier);
-	ENSURE(it != m->m_ScriptValCache.end());
-	return it->second.get();
-}
-
 
 bool ScriptInterface::LoadGlobalScripts()
 {
@@ -474,13 +464,6 @@ bool ScriptInterface::LoadGlobalScripts()
 			return false;
 		}
 
-	JSAutoRequest rq(m->m_cx);
-	JS::RootedValue proto(m->m_cx);
-	JS::RootedObject global(m->m_cx, m->m_glob);
-	if (JS_GetProperty(m->m_cx, global, "Vector2Dprototype", &proto))
-		m->m_ScriptValCache[CACHE_VECTOR2DPROTO].init(GetJSRuntime(), proto);
-	if (JS_GetProperty(m->m_cx, global, "Vector3Dprototype", &proto))
-		m->m_ScriptValCache[CACHE_VECTOR3DPROTO].init(GetJSRuntime(), proto);
 	return true;
 }
 
@@ -596,6 +579,28 @@ bool ScriptInterface::CallFunction_(JS::HandleValue val, const char* name, JS::H
 	return ok;
 }
 
+bool ScriptInterface::CreateObject(JS::MutableHandleValue objectValue) const
+{
+	JSContext* cx = GetContext();
+	JSAutoRequest rq(cx);
+
+	objectValue.setObjectOrNull(JS_NewPlainObject(cx));
+	if (!objectValue.isObject())
+		throw PSERROR_Scripting_CreateObjectFailed();
+
+	return true;
+}
+
+void ScriptInterface::CreateArray(JS::MutableHandleValue objectValue, size_t length) const
+{
+	JSContext* cx = GetContext();
+	JSAutoRequest rq(cx);
+
+	objectValue.setObjectOrNull(JS_NewArrayObject(cx, length));
+	if (!objectValue.isObject())
+		throw PSERROR_Scripting_CreateObjectFailed();
+}
+
 JS::Value ScriptInterface::GetGlobalObject() const
 {
 	JSAutoRequest rq(m->m_cx);
@@ -606,21 +611,40 @@ bool ScriptInterface::SetGlobal_(const char* name, JS::HandleValue value, bool r
 {
 	JSAutoRequest rq(m->m_cx);
 	JS::RootedObject global(m->m_cx, m->m_glob);
-	if (!replace)
+
+	bool found;
+	if (!JS_HasProperty(m->m_cx, global, name, &found))
+		return false;
+	if (found)
 	{
-		bool found;
-		if (!JS_HasProperty(m->m_cx, global, name, &found))
+		JS::Rooted<JSPropertyDescriptor> desc(m->m_cx);
+		if (!JS_GetOwnPropertyDescriptor(m->m_cx, global, name, &desc))
 			return false;
-		if (found)
+
+		if (desc.isReadonly())
 		{
-			JS_ReportError(m->m_cx, "SetGlobal \"%s\" called multiple times", name);
-			return false;
+			if (!replace)
+			{
+				JS_ReportError(m->m_cx, "SetGlobal \"%s\" called multiple times", name);
+				return false;
+			}
+
+			// This is not supposed to happen, unless the user has called SetProperty with constant = true on the global object
+			// instead of using SetGlobal.
+			if (desc.isPermanent())
+			{
+				JS_ReportError(m->m_cx, "The global \"%s\" is permanent and cannot be hotloaded", name);
+				return false;
+			}
+
+			LOGMESSAGE("Hotloading new value for global \"%s\".", name);
+			ENSURE(JS_DeleteProperty(m->m_cx, global, name));
 		}
 	}
 
 	uint attrs = 0;
 	if (constant)
-		attrs |= JSPROP_READONLY | JSPROP_PERMANENT;
+		attrs |= JSPROP_READONLY;
 	if (enumerate)
 		attrs |= JSPROP_ENUMERATE;
 

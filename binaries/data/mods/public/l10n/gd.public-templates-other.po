@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2019-03-15 09:45+0100\n"
-"PO-Revision-Date: 2019-03-15 15:20+0000\n"
+"POT-Creation-Date: 2019-06-21 09:44+0200\n"
+"PO-Revision-Date: 2019-06-21 16:11+0000\n"
 "Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Gaelic, Scottish (http://www.transifex.com/wildfire-games/0ad/language/gd/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,19 @@ msgstr ""
 msgid "Gaia"
 msgstr "Gaìa"
 
+#: simulation/templates/template_gaia_fish.xml:8
+#: simulation/templates/gaia/fauna_fish.xml:4
+msgid "Fish"
+msgstr "Iasg"
+
+#: simulation/templates/template_gaia_fish.xml:10
+msgid "Gather food from this bountiful oceanic resource."
+msgstr "Cruinnich biadh o stòras mòr na mara seo."
+
 #: simulation/templates/template_gaia_flora_bush.xml:8
+#: simulation/templates/gaia/flora_bush_temperate.xml:4
+#: simulation/templates/gaia/flora_bush_temperate_winter.xml:4
+#: simulation/templates/gaia/flora_bush_tropic.xml:4
 msgid "Bush"
 msgstr "Preas"
 
@@ -40,66 +52,34 @@ msgid "Generic Geology"
 msgstr "Geòlas gnèitheach"
 
 #: simulation/templates/template_gaia_geo_mineral.xml:4
-msgid "Mineral"
-msgstr "Mèinnear"
-
-#: simulation/templates/template_gaia_geo_mineral.xml:5
 msgid "Metal Mine"
 msgstr "Mèinn meatailt"
 
-#: simulation/templates/template_gaia_geo_mineral.xml:6
+#: simulation/templates/template_gaia_geo_mineral.xml:5
 msgid "A mineral deposit, providing access to rare forms of precious Metal."
 msgstr "Tional mèinnireach a bheir inntrigeadh dha sheòrsaichean gann de mheatailt uasal."
 
 #: simulation/templates/template_gaia_geo_rock.xml:4
-msgid "Rock"
-msgstr "Clach"
+msgid "Stone Quarry"
+msgstr "Cuaraidh cloiche"
 
 #: simulation/templates/template_gaia_geo_rock.xml:5
-msgid "Stone Mine"
-msgstr "Mèinn cloiche"
-
-#: simulation/templates/template_gaia_geo_rock.xml:6
 msgid "Mine these to provide Stone building material."
 msgstr "Tochail iad gus am faigh thu stuth togail cloiche."
 
 #: simulation/templates/template_gaia_ruins.xml:8
-msgid "Generic Ruins"
-msgstr "Làrach ghèitheach"
-
-#: simulation/templates/template_gaia_ruins.xml:9
-#: simulation/templates/gaia/ruins/column_doric.xml:8
-#: simulation/templates/gaia/ruins/unfinished_greek_temple.xml:8
 msgid "Ruins"
 msgstr "Làrach"
 
-#: simulation/templates/template_gaia_ruins.xml:10
+#: simulation/templates/template_gaia_ruins.xml:9
 msgid "These ruins that can be mined for resources."
 msgstr "Gabhaidh an làrach seo tochladh airson stòrasan."
 
 #: simulation/templates/template_gaia_treasure.xml:8
-msgid "Generic Treasure"
-msgstr "Ulaidh gnèiteach"
-
-#: simulation/templates/template_gaia_treasure.xml:9
-#: simulation/templates/gaia/treasure/food_barrel.xml:8
-#: simulation/templates/gaia/treasure/food_barrels_buried.xml:8
-#: simulation/templates/gaia/treasure/food_bin.xml:8
-#: simulation/templates/gaia/treasure/food_crate.xml:8
-#: simulation/templates/gaia/treasure/food_jars.xml:8
-#: simulation/templates/gaia/treasure/golden_fleece.xml:8
-#: simulation/templates/gaia/treasure/pegasus.xml:8
-#: simulation/templates/gaia/treasure/shipwreck.xml:8
-#: simulation/templates/gaia/treasure/shipwreck_debris.xml:8
-#: simulation/templates/gaia/treasure/shipwreck_ram_bow.xml:8
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat.xml:8
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat_cut.xml:8
-#: simulation/templates/gaia/treasure/stone.xml:8
-#: simulation/templates/gaia/treasure/wood.xml:8
 msgid "Treasure"
 msgstr "Ulaidh"
 
-#: simulation/templates/template_gaia_treasure.xml:10
+#: simulation/templates/template_gaia_treasure.xml:9
 msgid "A treasure that can be quickly gathered."
 msgstr "Ulaidh a ghabhas togail gu luath."
 
@@ -110,6 +90,14 @@ msgstr "Togalach"
 #: simulation/templates/template_unit.xml:42
 msgid "Unit"
 msgstr "Aonad"
+
+#: simulation/templates/template_wallset.xml:11
+msgid "City Wall"
+msgstr "Balla a’ bhaile"
+
+#: simulation/templates/template_wallset.xml:12
+msgid "Wall off your town for a stout defense."
+msgstr "Tog balla timcheall air a’ bhaile agad airson dìona làidir."
 
 #: simulation/templates/campaigns/army_mace_hero_alexander.xml:27
 msgid "Army of Alexander the Great."
@@ -141,29 +129,29 @@ msgstr "Arm Leonidas I."
 msgid "Army of Leonidas I"
 msgstr "Arm Leonidas I"
 
-#: simulation/templates/campaigns/campaign_city_minor_test.xml:25
-#: simulation/templates/campaigns/campaign_city_test.xml:25
+#: simulation/templates/campaigns/campaign_city_minor_test.xml:29
+#: simulation/templates/campaigns/campaign_city_test.xml:29
 msgid "Market"
 msgstr "Margaid"
 
-#: simulation/templates/campaigns/campaign_city_minor_test.xml:26
-#: simulation/templates/campaigns/campaign_city_test.xml:26
+#: simulation/templates/campaigns/campaign_city_minor_test.xml:30
+#: simulation/templates/campaigns/campaign_city_test.xml:30
 msgid "Settlement"
 msgstr "Tuineachadh"
 
-#: simulation/templates/campaigns/campaign_city_minor_test.xml:27
+#: simulation/templates/campaigns/campaign_city_minor_test.xml:31
 msgid "Minor Greek Polis"
 msgstr "Polis Greugach beag"
 
-#: simulation/templates/campaigns/campaign_city_minor_test.xml:28
+#: simulation/templates/campaigns/campaign_city_minor_test.xml:32
 msgid "This is a minor Greek city."
 msgstr "Seo mion-bhaile nan Greugach."
 
-#: simulation/templates/campaigns/campaign_city_test.xml:27
+#: simulation/templates/campaigns/campaign_city_test.xml:31
 msgid "Greek Polis"
 msgstr "Polis Greugach"
 
-#: simulation/templates/campaigns/campaign_city_test.xml:28
+#: simulation/templates/campaigns/campaign_city_test.xml:32
 msgid "This is a major Greek city."
 msgstr "Seo mòr-bhaile nan Greugach."
 
@@ -184,19 +172,19 @@ msgstr "Madadh-allaidh an t-sneachda"
 msgid "Canis lupus"
 msgstr "Canis lupus"
 
-#: simulation/templates/gaia/fauna_bear.xml:17
+#: simulation/templates/gaia/fauna_bear.xml:19
 msgid "Brown Bear"
 msgstr "Mathan donn"
 
-#: simulation/templates/gaia/fauna_bear.xml:18
+#: simulation/templates/gaia/fauna_bear.xml:20
 msgid "Ursus arctos"
 msgstr "Ursus arctos"
 
-#: simulation/templates/gaia/fauna_boar.xml:17
+#: simulation/templates/gaia/fauna_boar.xml:19
 msgid "Wild Boar"
 msgstr "Torc fiadhaich"
 
-#: simulation/templates/gaia/fauna_boar.xml:18
+#: simulation/templates/gaia/fauna_boar.xml:20
 msgid "Sus scrofa"
 msgstr "Sus scrofa"
 
@@ -208,6 +196,35 @@ msgstr "Dromadair"
 msgid "Camelus dromedarius"
 msgstr "Camelus dromedarius"
 
+#: simulation/templates/gaia/fauna_cattle_bull.xml:4
+msgid "Bull"
+msgstr ""
+
+#: simulation/templates/gaia/fauna_cattle_bull.xml:5
+#: simulation/templates/gaia/fauna_cattle_cow.xml:5
+msgid "Bos taurus taurus"
+msgstr ""
+
+#: simulation/templates/gaia/fauna_cattle_cow.xml:4
+msgid "Cow"
+msgstr ""
+
+#: simulation/templates/gaia/fauna_cattle_sanga.xml:4
+msgid "Sanga Cattle"
+msgstr ""
+
+#: simulation/templates/gaia/fauna_cattle_sanga.xml:5
+msgid "Bos taurus africanus"
+msgstr ""
+
+#: simulation/templates/gaia/fauna_cattle_zebu.xml:4
+msgid "Zebu"
+msgstr "Bò-Innseanach"
+
+#: simulation/templates/gaia/fauna_cattle_zebu.xml:5
+msgid "Bos taurus indicus"
+msgstr "Bos taurus indicus"
+
 #: simulation/templates/gaia/fauna_chicken.xml:11
 msgid "Chicken"
 msgstr "Cearc"
@@ -216,11 +233,11 @@ msgstr "Cearc"
 msgid "Gallus gallus domesticus"
 msgstr "Gallus gallus domesticus"
 
-#: simulation/templates/gaia/fauna_crocodile.xml:17
+#: simulation/templates/gaia/fauna_crocodile.xml:19
 msgid "Nile Crocodile"
 msgstr "Crogall Èipheiteach"
 
-#: simulation/templates/gaia/fauna_crocodile.xml:18
+#: simulation/templates/gaia/fauna_crocodile.xml:20
 msgid "Crocodylus niloticus"
 msgstr "Crogall Nìl"
 
@@ -273,13 +290,6 @@ msgstr "Ailbhean-Àisianach coille"
 #: simulation/templates/gaia/fauna_elephant_north_african.xml:12
 msgid "Loxodonta cyclotis"
 msgstr "Loxodonta cyclotis"
-
-#: simulation/templates/gaia/fauna_fish.xml:4
-#: simulation/templates/gaia/fauna_fish.xml:5
-#: simulation/templates/gaia/fauna_fish_tilapia.xml:5
-#: simulation/templates/gaia/fauna_fish_tuna.xml:5
-msgid "Fish"
-msgstr "Iasg"
 
 #: simulation/templates/gaia/fauna_fish_tilapia.xml:4
 msgid "Tilapia"
@@ -342,11 +352,11 @@ msgstr "Each"
 msgid "Equus ferus caballus"
 msgstr "Equus ferus caballus"
 
-#: simulation/templates/gaia/fauna_lion.xml:17
+#: simulation/templates/gaia/fauna_lion.xml:19
 msgid "Lion"
 msgstr "Leòmhann"
 
-#: simulation/templates/gaia/fauna_lion.xml:18
+#: simulation/templates/gaia/fauna_lion.xml:20
 msgid "Panthera leo"
 msgstr "Panthera leo"
 
@@ -407,11 +417,11 @@ msgstr "Coineanach"
 msgid "Oryctolagus cuniculus"
 msgstr "Oryctolagus cuniculus"
 
-#: simulation/templates/gaia/fauna_rhino.xml:17
+#: simulation/templates/gaia/fauna_rhino.xml:19
 msgid "White Rhinoceros"
 msgstr "Sròn-adharcach geal"
 
-#: simulation/templates/gaia/fauna_rhino.xml:18
+#: simulation/templates/gaia/fauna_rhino.xml:20
 msgid "Ceratotherium simum"
 msgstr "Ceratotherium simum"
 
@@ -431,19 +441,19 @@ msgstr "Caora"
 msgid "Ovis aries"
 msgstr "Ovis aries"
 
-#: simulation/templates/gaia/fauna_tiger.xml:17
+#: simulation/templates/gaia/fauna_tiger.xml:19
 msgid "Tiger"
 msgstr "Tìgear"
 
-#: simulation/templates/gaia/fauna_tiger.xml:18
+#: simulation/templates/gaia/fauna_tiger.xml:20
 msgid "Panthera tigris"
 msgstr "Panthera tigris"
 
-#: simulation/templates/gaia/fauna_walrus.xml:24
+#: simulation/templates/gaia/fauna_walrus.xml:26
 msgid "Walrus"
 msgstr "Each-mara"
 
-#: simulation/templates/gaia/fauna_walrus.xml:25
+#: simulation/templates/gaia/fauna_walrus.xml:27
 msgid "Odobenus rosmarus"
 msgstr "Odobenus rosmarus"
 
@@ -487,14 +497,6 @@ msgstr "Sìobra cumanta"
 msgid "Equus quagga"
 msgstr "Equus quagga"
 
-#: simulation/templates/gaia/fauna_zebu.xml:8
-msgid "Zebu"
-msgstr "Bò-Innseanach"
-
-#: simulation/templates/gaia/fauna_zebu.xml:9
-msgid "Bos taurus indicus"
-msgstr "Bos taurus indicus"
-
 #: simulation/templates/gaia/flora_bush_badlands.xml:4
 msgid "Hardy Bush"
 msgstr "Preas seasmhach"
@@ -515,10 +517,6 @@ msgstr "Fìon-dhearcan"
 msgid "Gather grapes from these vines for Food."
 msgstr "Cruinnich fìon-dhearcan on chrann-fìona seo airson bìdh."
 
-#: simulation/templates/gaia/flora_bush_temperate.xml:4
-msgid "Deciduous Bush"
-msgstr "Preas seargach"
-
 #: simulation/templates/gaia/flora_tree_acacia.xml:4
 msgid "Acacia Tree"
 msgstr "Sitta"
@@ -531,9 +529,43 @@ msgstr "Giuthas Aleppo"
 msgid "Apple Tree"
 msgstr "Craobh-ubhail"
 
+#: simulation/templates/gaia/flora_tree_bamboo.xml:4
+#: simulation/templates/gaia/flora_tree_bamboo_single.xml:4
+msgid "Bamboo"
+msgstr "Cuilc-Fhrangach"
+
+#: simulation/templates/gaia/flora_tree_bamboo_dragon.xml:8
+msgid "Dragon Bamboo"
+msgstr ""
+
+#: simulation/templates/gaia/flora_tree_banana.xml:4
+msgid "Banana"
+msgstr ""
+
+#: simulation/templates/gaia/flora_tree_banana.xml:5
+msgid "Gather bananas for Food."
+msgstr ""
+
+#: simulation/templates/gaia/flora_tree_banyan.xml:8
+msgid "Banyan"
+msgstr "Fìge-Innseach"
+
 #: simulation/templates/gaia/flora_tree_baobab.xml:8
+#: simulation/templates/gaia/flora_tree_baobab_3_mature.xml:8
 msgid "Baobab"
 msgstr "Bathobab"
+
+#: simulation/templates/gaia/flora_tree_baobab_1_sapling.xml:4
+msgid "Baobab Sapling"
+msgstr "Fiùran bathobab"
+
+#: simulation/templates/gaia/flora_tree_baobab_2_young.xml:4
+msgid "Young Baobab"
+msgstr "Bathobab òg"
+
+#: simulation/templates/gaia/flora_tree_baobab_4_dead.xml:8
+msgid "Dead Baobab"
+msgstr "Bathobab marbh"
 
 #: simulation/templates/gaia/flora_tree_carob.xml:4
 msgid "Carob Tree"
@@ -541,16 +573,16 @@ msgstr "Craobh aran Eòin"
 
 #: simulation/templates/gaia/flora_tree_cedar_atlas_1_sapling.xml:4
 msgid "Atlas Cedar Sapling"
-msgstr ""
+msgstr "Fiùran seudair Atlas"
 
 #: simulation/templates/gaia/flora_tree_cedar_atlas_2_young.xml:4
 #: simulation/templates/gaia/flora_tree_cedar_atlas_3_mature.xml:4
 msgid "Atlas Cedar"
-msgstr ""
+msgstr "Seudar Atlas"
 
 #: simulation/templates/gaia/flora_tree_cedar_atlas_4_dead.xml:4
 msgid "Dead Atlas Cedar"
-msgstr ""
+msgstr "Seudar Atlas marbh"
 
 #: simulation/templates/gaia/flora_tree_cretan_date_palm_patch.xml:8
 #: simulation/templates/gaia/flora_tree_cretan_date_palm_short.xml:4
@@ -566,14 +598,26 @@ msgstr "Craobh-bhròin"
 msgid "Date Palm"
 msgstr "Pailm deite"
 
+#: simulation/templates/gaia/flora_tree_date_palm_dead.xml:4
+msgid "Dead Palm"
+msgstr "Craobh-phailm mharbh"
+
+#: simulation/templates/gaia/flora_tree_date_palm_fruit.xml:4
+msgid "Fruiting Date Palm"
+msgstr "Pailm deite le measan"
+
 #: simulation/templates/gaia/flora_tree_dead.xml:4
-msgid "Dead Tree"
-msgstr "Craobh mharbh"
+msgid "Dead Deciduous Tree"
+msgstr ""
 
 #: simulation/templates/gaia/flora_tree_euro_beech.xml:4
 #: simulation/templates/gaia/flora_tree_euro_beech_aut.xml:4
 msgid "European Beech Tree"
 msgstr "Beithe Eòrpach"
+
+#: simulation/templates/gaia/flora_tree_euro_birch.xml:4
+msgid "Silver Birch"
+msgstr ""
 
 #: simulation/templates/gaia/flora_tree_fig.xml:7
 msgid "Fig"
@@ -583,8 +627,21 @@ msgstr "Fìge"
 msgid "Gather figs for Food."
 msgstr "Cruinnich fìgean airson bìdh."
 
+#: simulation/templates/gaia/flora_tree_fir.xml:4
+#: simulation/templates/gaia/flora_tree_fir_winter.xml:4
+msgid "Fir Tree"
+msgstr ""
+
 #: simulation/templates/gaia/flora_tree_fir_sapling.xml:4
 msgid "Fir Sapling"
+msgstr "Fiùran giuthais"
+
+#: simulation/templates/gaia/flora_tree_mangrove.xml:4
+msgid "Mangrove"
+msgstr "Mangrobh"
+
+#: simulation/templates/gaia/flora_tree_maple.xml:4
+msgid "Maple"
 msgstr ""
 
 #: simulation/templates/gaia/flora_tree_medit_fan_palm.xml:4
@@ -599,6 +656,10 @@ msgstr "Pailm gaotharain mheadhan-thìreach"
 msgid "Oak Tree"
 msgstr "Darach"
 
+#: simulation/templates/gaia/flora_tree_oak_holly.xml:4
+msgid "Holly Oak"
+msgstr ""
+
 #: simulation/templates/gaia/flora_tree_oak_large.xml:4
 msgid "Large Oak Tree"
 msgstr "Darach mòr"
@@ -606,6 +667,18 @@ msgstr "Darach mòr"
 #: simulation/templates/gaia/flora_tree_olive.xml:4
 msgid "Olive Tree"
 msgstr "Craobh dhearcan-ola"
+
+#: simulation/templates/gaia/flora_tree_palm_areca.xml:4
+msgid "Areca Palm"
+msgstr ""
+
+#: simulation/templates/gaia/flora_tree_palm_doum.xml:4
+msgid "Doum Palm"
+msgstr "Craobh-phailm Doum"
+
+#: simulation/templates/gaia/flora_tree_palm_palmyra.xml:4
+msgid "Palmyra Palm"
+msgstr "Craobh-phailm Palmyra"
 
 #: simulation/templates/gaia/flora_tree_palm_tropic.xml:4
 msgid "Palm"
@@ -623,7 +696,7 @@ msgstr "Giuthas"
 #: simulation/templates/gaia/flora_tree_pine_black.xml:4
 #: simulation/templates/gaia/flora_tree_pine_black_dead.xml:4
 msgid "Black Pine"
-msgstr ""
+msgstr "Giuthas dubh"
 
 #: simulation/templates/gaia/flora_tree_poplar.xml:4
 msgid "Poplar Tree"
@@ -637,145 +710,142 @@ msgstr "Craobh-phobaill dhubh"
 msgid "Senegal Date Palm"
 msgstr "Pailm deite Sheanagalach"
 
+#: simulation/templates/gaia/flora_tree_strangler.xml:8
+msgid "Strangler Fig"
+msgstr ""
+
 #: simulation/templates/gaia/flora_tree_tamarix.xml:4
 msgid "Tamarix Tree"
 msgstr "craobh-sheudair salainn"
+
+#: simulation/templates/gaia/flora_tree_teak.xml:8
+msgid "Teak"
+msgstr ""
+
+#: simulation/templates/gaia/flora_tree_temperate.xml:4
+#: simulation/templates/gaia/flora_tree_temperate_autumn.xml:4
+#: simulation/templates/gaia/flora_tree_temperate_winter.xml:4
+msgid "Deciduous Tree"
+msgstr ""
 
 #: simulation/templates/gaia/flora_tree_toona.xml:4
 msgid "Toona Tree"
 msgstr "Craobh-sheudair dhearg"
 
-#: simulation/templates/gaia/ruins/column_doric.xml:9
+#: simulation/templates/gaia/flora_tree_tropic_rainforest.xml:4
+msgid "Rainforest Tree"
+msgstr ""
+
+#: simulation/templates/gaia/ruins/column_doric.xml:8
 msgid "Ancient Ruins"
 msgstr "Làrach àrsaidh"
 
 #: simulation/templates/gaia/ruins/pyramid_great.xml:8
-#: simulation/templates/gaia/ruins/pyramid_minor.xml:8
-msgid "Pyramid"
-msgstr "Pioramaid"
-
-#: simulation/templates/gaia/ruins/pyramid_great.xml:9
 msgid "Great Pyramid"
 msgstr "Pioramaid Mhòr"
 
-#: simulation/templates/gaia/ruins/pyramid_minor.xml:9
+#: simulation/templates/gaia/ruins/pyramid_minor.xml:8
 msgid "Minor Pyramid"
 msgstr "Pioramaid bheag"
 
 #: simulation/templates/gaia/ruins/standing_stone.xml:8
-#: simulation/templates/gaia/ruins/stone_statues_egyptian.xml:8
-#: simulation/templates/gaia/ruins/stone_statues_kushite.xml:8
-#: simulation/templates/gaia/ruins/stone_statues_roman.xml:8
-msgid "Stone Ruins"
-msgstr "Làrach chloiche"
-
-#: simulation/templates/gaia/ruins/standing_stone.xml:9
-#: simulation/templates/gaia/treasure/standing_stone.xml:9
+#: simulation/templates/gaia/treasure/standing_stone.xml:8
 msgid "Celtic Standing Stone"
 msgstr "Tursa Ceilteach"
 
-#: simulation/templates/gaia/ruins/stone_statues_egyptian.xml:9
+#: simulation/templates/gaia/ruins/stone_statues_egyptian.xml:8
 msgid "Ptolemaic Egyptian Statues"
 msgstr "Ìomhaighean nan Èipheiteach Ptolamach"
 
-#: simulation/templates/gaia/ruins/stone_statues_kushite.xml:9
+#: simulation/templates/gaia/ruins/stone_statues_kushite.xml:8
 msgid "Kushite Statue"
 msgstr "Ìomhaigh Kulušach"
 
-#: simulation/templates/gaia/ruins/stone_statues_roman.xml:9
+#: simulation/templates/gaia/ruins/stone_statues_roman.xml:8
 msgid "Roman Statues"
 msgstr "Ìomhaighean Ròmanach"
 
-#: simulation/templates/gaia/ruins/unfinished_greek_temple.xml:9
+#: simulation/templates/gaia/ruins/unfinished_greek_temple.xml:8
 msgid "Unfinished Greek Temple"
 msgstr "Teampall Greugach neo-chrìochnaichte"
 
-#: simulation/templates/gaia/ruins/unfinished_greek_temple.xml:10
+#: simulation/templates/gaia/ruins/unfinished_greek_temple.xml:9
 msgid "This temple is unfinished and has fallen to ruin."
 msgstr "Cha deach an teampall seo a choileanadh is chan eil ach fuigheall air fhàgail."
 
-#: simulation/templates/gaia/treasure/food_barrel.xml:9
-#: simulation/templates/gaia/treasure/food_bin.xml:9
-#: simulation/templates/gaia/treasure/food_crate.xml:9
-#: simulation/templates/gaia/treasure/food_jars.xml:9
-#: simulation/templates/gaia/treasure/food_persian_big.xml:8
-#: simulation/templates/gaia/treasure/food_persian_small.xml:8
+#: simulation/templates/gaia/treasure/food_barrel.xml:8
+#: simulation/templates/gaia/treasure/food_bin.xml:8
+#: simulation/templates/gaia/treasure/food_crate.xml:8
+#: simulation/templates/gaia/treasure/food_jars.xml:8
 msgid "Food Treasure"
 msgstr "Ulaidh bhìdh"
 
-#: simulation/templates/gaia/treasure/food_barrels_buried.xml:9
+#: simulation/templates/gaia/treasure/food_barrels_buried.xml:8
 msgid "Half-buried Barrels"
 msgstr "Baraillean le an dàrna leth san ùir"
 
-#: simulation/templates/gaia/treasure/food_persian_big.xml:9
+#: simulation/templates/gaia/treasure/food_persian_big.xml:8
 msgid "Persian Food Stores"
 msgstr "Stòrasan bìdh Pearsach"
 
-#: simulation/templates/gaia/treasure/food_persian_small.xml:9
+#: simulation/templates/gaia/treasure/food_persian_small.xml:8
 msgid "Persian Food Treasure"
 msgstr "Ulaidh bhìdh Phearsach"
 
-#: simulation/templates/gaia/treasure/golden_fleece.xml:9
+#: simulation/templates/gaia/treasure/golden_fleece.xml:8
 msgid "Golden Fleece"
 msgstr "Rùsg òir"
 
 #: simulation/templates/gaia/treasure/metal.xml:8
-#: simulation/templates/gaia/treasure/metal_persian_big.xml:8
-#: simulation/templates/gaia/treasure/metal_persian_small.xml:8
-msgid "Metal Treasure"
-msgstr "Ulaidh mheatailt"
-
-#: simulation/templates/gaia/treasure/metal.xml:9
 msgid "Secret Box"
 msgstr "Bogsa dìomhair"
 
-#: simulation/templates/gaia/treasure/metal_persian_big.xml:9
+#: simulation/templates/gaia/treasure/metal_persian_big.xml:8
 msgid "Persian Wares"
 msgstr "Bathar Pearsach"
 
-#: simulation/templates/gaia/treasure/metal_persian_small.xml:9
+#: simulation/templates/gaia/treasure/metal_persian_small.xml:8
 msgid "Persian Rugs"
 msgstr "Bratan-ùrlair Pearsach"
 
-#: simulation/templates/gaia/treasure/pegasus.xml:9
+#: simulation/templates/gaia/treasure/pegasus.xml:8
 msgid "Pegasus"
 msgstr "Peagasas"
 
-#: simulation/templates/gaia/treasure/shipwreck.xml:9
-#: simulation/templates/gaia/treasure/shipwreck_ram_bow.xml:9
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat.xml:9
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat_cut.xml:9
+#: simulation/templates/gaia/treasure/shipwreck.xml:8
+#: simulation/templates/gaia/treasure/shipwreck_ram_bow.xml:8
+#: simulation/templates/gaia/treasure/shipwreck_sail_boat.xml:8
+#: simulation/templates/gaia/treasure/shipwreck_sail_boat_cut.xml:8
 msgid "Shipwreck"
 msgstr "Long bhriste"
 
-#: simulation/templates/gaia/treasure/shipwreck.xml:10
+#: simulation/templates/gaia/treasure/shipwreck.xml:9
 msgid "A decaying military shipwreck. A good opportunity for any businessman."
 msgstr "Long bhriste an airm a’ lobhadh. Cothrom math do neach-ghnothaich sam bith."
 
-#: simulation/templates/gaia/treasure/shipwreck_debris.xml:9
+#: simulation/templates/gaia/treasure/shipwreck_debris.xml:8
 msgid "Shipwreck Cargo"
 msgstr "Carago long-bhrisidh"
 
-#: simulation/templates/gaia/treasure/shipwreck_ram_bow.xml:10
+#: simulation/templates/gaia/treasure/shipwreck_ram_bow.xml:9
 msgid ""
 "A shipwreck with much loss of life. A good opportunity for any businessman."
 msgstr "Long bhriste le mòran air an caochladh. Cothrom math do neach-ghnothaich sam bith."
 
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat.xml:10
+#: simulation/templates/gaia/treasure/shipwreck_sail_boat.xml:9
 msgid ""
 "The wreck of a small cargo ship. A good opportunity for any businessman."
 msgstr "Long carago bhriste bheag. Cothrom math do neach-ghnothaich sam bith."
 
-#: simulation/templates/gaia/treasure/shipwreck_sail_boat_cut.xml:10
+#: simulation/templates/gaia/treasure/shipwreck_sail_boat_cut.xml:9
 msgid "A cargo ship rammed in half. A good opportunity for any businessman."
 msgstr "Long carago chaidh a bhriseadh le starradh. Cothrom math do neach-ghnothaich sam bith."
 
-#: simulation/templates/gaia/treasure/standing_stone.xml:8
-#: simulation/templates/gaia/treasure/stone.xml:9
+#: simulation/templates/gaia/treasure/stone.xml:8
 msgid "Stone Treasure"
 msgstr "Ulaidh chloiche"
 
-#: simulation/templates/gaia/treasure/wood.xml:9
+#: simulation/templates/gaia/treasure/wood.xml:8
 msgid "Wood Treasure"
 msgstr "Ulaidh fhiodha"
 
@@ -886,90 +956,62 @@ msgstr "Tursa Èipheiteach"
 msgid "Egyptian Obelisk"
 msgstr "Tursa Èipheiteach"
 
-#: simulation/templates/other/palisades_angle_spike.xml:14
-msgid "Palisade Angle Spike"
-msgstr "Spìc sonnaich"
-
-#: simulation/templates/other/palisades_angle_spike.xml:15
-msgid "Big Spike"
-msgstr "Spìc mhòr"
+#: simulation/templates/other/palisades_angle_spike.xml:17
+msgid "Angle Spike"
+msgstr "Spìc chlaon"
 
 #: simulation/templates/other/palisades_rocks_curve.xml:14
 msgid "Palisade Curve"
 msgstr "Lùb sonnaich"
 
-#: simulation/templates/other/palisades_rocks_curve.xml:15
-msgid "Wooden Wall Corner"
-msgstr "Oisean balla fhiodha"
-
 #: simulation/templates/other/palisades_rocks_end.xml:14
 msgid "Palisade End"
 msgstr "Deireadh sonnaich"
 
-#: simulation/templates/other/palisades_rocks_end.xml:15
-msgid "Wooden Wall End"
-msgstr "Deireadh balla fhiodha"
-
-#: simulation/templates/other/palisades_rocks_fort.xml:5
+#: simulation/templates/other/palisades_rocks_fort.xml:9
 msgid "Palisade Fort"
 msgstr "Dùn sonnaich"
 
-#: simulation/templates/other/palisades_rocks_fort.xml:6
+#: simulation/templates/other/palisades_rocks_fort.xml:10
 msgid "Wooden Tower"
 msgstr "Tùr fiodha"
 
-#: simulation/templates/other/palisades_rocks_gate.xml:17
+#: simulation/templates/other/palisades_rocks_gate.xml:21
 msgid "Palisade Gate"
 msgstr "Geata sonnaich"
 
-#: simulation/templates/other/palisades_rocks_gate.xml:18
-msgid "Wooden Gate"
-msgstr "Geata fiodha"
+#: simulation/templates/other/palisades_rocks_gate.xml:23
+msgid ""
+"Allow units access through a palisade wall. Can be locked to prevent access."
+msgstr "Leigidh seo aonadan tro bhalla sonnaich. Gabhaidh a ghlasadh gus inntrigeadh a bhacadh."
 
-#: simulation/templates/other/palisades_rocks_long.xml:26
-#: simulation/templates/other/palisades_rocks_medium.xml:26
-#: simulation/templates/other/palisades_rocks_short.xml:25
+#: simulation/templates/other/palisades_rocks_long.xml:18
+#: simulation/templates/other/palisades_rocks_medium.xml:18
+#: simulation/templates/other/palisades_rocks_short.xml:18
 #: simulation/templates/other/palisades_rocks_straight.xml:14
-#: simulation/templates/other/palisades_rocks_tower.xml:24
+#: simulation/templates/other/palisades_rocks_tower.xml:18
 #: simulation/templates/other/wallset_palisade.xml:5
 msgid "Palisade"
 msgstr "Sonnach"
 
-#: simulation/templates/other/palisades_rocks_long.xml:27
-#: simulation/templates/other/palisades_rocks_medium.xml:27
-#: simulation/templates/other/palisades_rocks_short.xml:26
-#: simulation/templates/other/palisades_rocks_straight.xml:15
-#: simulation/templates/other/palisades_rocks_tower.xml:25
-#: simulation/templates/other/wallset_palisade.xml:4
-msgid "Wooden Wall"
-msgstr "Balla fiodha"
+#: simulation/templates/other/palisades_rocks_long.xml:33
+msgid ""
+"This will allow you to let units circulate through your fortifications."
+msgstr "Leigidh seo leis na h-aonadan agad cuairteachadh tron daigneachadh agad."
 
-#: simulation/templates/other/palisades_rocks_outpost.xml:14
+#: simulation/templates/other/palisades_rocks_outpost.xml:17
 msgid "Outpost"
 msgstr "Gearastan"
-
-#: simulation/templates/other/palisades_rocks_outpost.xml:15
-#: simulation/templates/other/palisades_rocks_watchtower.xml:15
-msgid "Wooden Watch Tower"
-msgstr "Tùr-faire fiodha"
 
 #: simulation/templates/other/palisades_rocks_watchtower.xml:14
 msgid "Watchtower"
 msgstr "Tùr-faire"
 
-#: simulation/templates/other/palisades_small_spikes.xml:14
-msgid "Spikes Small"
-msgstr "Spìcean beaga"
-
-#: simulation/templates/other/palisades_small_spikes.xml:15
+#: simulation/templates/other/palisades_small_spikes.xml:17
 msgid "Small Spikes"
 msgstr "Spìcean beaga"
 
-#: simulation/templates/other/palisades_tall_spikes.xml:14
-msgid "Spikes Tall"
-msgstr "Spìcean àrda"
-
-#: simulation/templates/other/palisades_tall_spikes.xml:15
+#: simulation/templates/other/palisades_tall_spikes.xml:17
 msgid "Tall Spikes"
 msgstr "Spìcean àrda"
 
@@ -1007,6 +1049,10 @@ msgstr "Bòrd ceart-cheàrnach"
 msgid "Square Table"
 msgstr "Bòrd ceàrnagach"
 
+#: simulation/templates/other/wallset_palisade.xml:4
+msgid "Wooden Wall"
+msgstr "Balla fiodha"
+
 #: simulation/templates/skirmish/structures/default_house_10.xml:5
 msgid ""
 "Changes in a 10-pop house for civilisations with those houses, is deleted "
@@ -1025,20 +1071,20 @@ msgstr "Brathadair"
 
 #: simulation/templates/special/formations/anti_cavalry.xml:6
 #: simulation/templates/special/formations/testudo.xml:6
-msgid "16 melee infantry units required"
-msgstr ""
+msgid "At least 16 melee infantry units required."
+msgstr "Tha feum air 16 aonadan coisridh dlùithe air a char as lugha."
 
 #: simulation/templates/special/formations/anti_cavalry.xml:7
 msgid "Anti Cavalry"
-msgstr ""
+msgstr "An aghaidh eachraidh"
 
 #: simulation/templates/special/formations/battle_line.xml:5
 msgid "Battle Line"
 msgstr "Loidhne-chatha"
 
 #: simulation/templates/special/formations/box.xml:6
-msgid "4 units required"
-msgstr "Tha feum air 4 aonadan"
+msgid "At least 4 units required."
+msgstr "Tha feum air 4 aonadan air a char as lugha."
 
 #: simulation/templates/special/formations/box.xml:7
 msgid "Box"
@@ -1053,8 +1099,8 @@ msgid "Column Open"
 msgstr "Colbh fosgailte"
 
 #: simulation/templates/special/formations/flank.xml:6
-msgid "8 units required"
-msgstr "Tha feum air 8 aonadan"
+msgid "At least 8 units required."
+msgstr "Tha feum air 8 aonadan air a char as lugha."
 
 #: simulation/templates/special/formations/flank.xml:7
 msgid "Flank"
@@ -1073,8 +1119,8 @@ msgid "None"
 msgstr "Chan eil gin"
 
 #: simulation/templates/special/formations/phalanx.xml:6
-msgid "10 hoplite infantry required"
-msgstr "Tha feum air 10 aonadan coisridh hoiplid"
+msgid "At least 10 hoplite infantry required."
+msgstr "Tha feum air 10 aonadan coisridh hoiplid air a char as lugha."
 
 #: simulation/templates/special/formations/phalanx.xml:7
 msgid "Phalanx"
@@ -1085,16 +1131,16 @@ msgid "Scatter"
 msgstr "Sgapte"
 
 #: simulation/templates/special/formations/skirmish.xml:5
-msgid "Only ranged units allowed"
-msgstr "Chan eil ach aonadan astair ceadaichte"
+msgid "Only ranged units allowed."
+msgstr "Chan eil ach aonadan astair ceadaichte."
 
 #: simulation/templates/special/formations/skirmish.xml:6
 msgid "Skirmish"
 msgstr "Streup"
 
 #: simulation/templates/special/formations/syntagma.xml:6
-msgid "16 pike infantry units required"
-msgstr "Tha feum air 16 aonad pìceir coisridh"
+msgid "At least 16 pike infantry units required."
+msgstr "Tha feum air 16 aonad pìceir coisridh air a char as lugha."
 
 #: simulation/templates/special/formations/syntagma.xml:8
 msgid "Syntagma"
@@ -1105,8 +1151,8 @@ msgid "Testudo"
 msgstr "Sligeanach"
 
 #: simulation/templates/special/formations/wedge.xml:6
-msgid "6 cavalry units required"
-msgstr "Tha feum air 6 aonadan eachraidh"
+msgid "At least 6 cavalry units required."
+msgstr "Tha feum air 6 aonadan eachraidh air a char as lugha."
 
 #: simulation/templates/special/formations/wedge.xml:7
 msgid "Wedge"

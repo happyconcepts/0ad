@@ -16,8 +16,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0 A.D.\n"
-"POT-Creation-Date: 2019-01-18 09:44+0100\n"
-"PO-Revision-Date: 2019-01-18 15:14+0000\n"
+"POT-Creation-Date: 2019-05-24 09:43+0200\n"
+"PO-Revision-Date: 2019-05-24 14:54+0000\n"
 "Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/wildfire-games/0ad/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -243,8 +243,8 @@ msgstr "%(_player_)s, musíš mi poslat tribut (projev úcty, vlastně vazalskou
 #, javascript-format
 msgid ""
 "Unless you send me %(_amount_)s %(_resource_)s, an alliance won’t be formed,"
-" %(_player_)s,"
-msgstr "Dokud mi nepošleš %(_amount_)s %(_resource_)s, tak spojenectví utvořeno nebude, %(_player_)s,"
+" %(_player_)s."
+msgstr ""
 
 #: simulation/ai/petra/chatHelper.js:88
 #, javascript-format
@@ -614,7 +614,7 @@ msgstr "Nelze vyložit jednotky"
 msgid "Some unit(s) can't go back to work"
 msgstr "Některé jednotky nemohou jít zpět do práce"
 
-#: simulation/helpers/Commands.js:1114
+#: simulation/helpers/Commands.js:1112
 msgid "The building's technology requirements are not met."
 msgstr "Technologické požadavky na postavení budovy nejsou splněny."
 
@@ -746,8 +746,9 @@ msgstr "Královrah"
 msgid ""
 "Be the first to build or capture a Wonder and keep it for a certain time to "
 "win the game. The timer will be reset when the Wonder is destroyed or "
-"captured or in allied victory when the owners alliances change."
-msgstr "Buď prvním, kdo postaví nebo zabere div a uchová si ho po určitou dobu, aby jsi zvítězil ve hře. Měřič času bude vynulován, kdykoliv je div zničen nebo zabrán, či v případě změny členů ve spojenectví při spojeneckém vítězství. "
+"captured. If the allied victory mode is enabled, the timer will also be "
+"reset when the alliances of the owner change."
+msgstr ""
 
 #: simulation/data/settings/victory_conditions/wonder.jsonData.Title
 msgid "Wonder"

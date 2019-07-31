@@ -35,12 +35,13 @@ GUI Core, stuff that the whole GUI uses
 #include <map>
 #include <vector>
 
-#include "graphics/Color.h"
+#include "gui/CGUIColor.h"
 #include "ps/CStr.h"
 #include "ps/Errors.h"
 // I would like to just forward declare CSize, but it doesn't
 //  seem to be defined anywhere in the predefined header.
 #include "ps/Shapes.h"
+#include "scriptinterface/ScriptInterface.h"
 
 class IGUIObject;
 
@@ -202,12 +203,14 @@ public:
 	{
 		return pixel == other.pixel && percent == other.percent;
 	}
+
+	void ToJSVal(JSContext* cx, JS::MutableHandleValue ret) const;
+	bool FromJSVal(JSContext* cx, JS::HandleValue v);
 };
 
 
 ERROR_GROUP(GUI);
 
-ERROR_TYPE(GUI, NullObjectProvided);
 ERROR_TYPE(GUI, InvalidSetting);
 ERROR_TYPE(GUI, OperationNeedsGUIObject);
 ERROR_TYPE(GUI, NameAmbiguity);
